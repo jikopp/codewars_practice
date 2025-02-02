@@ -1,25 +1,18 @@
-// Are You Playing Banjo?
+/*
+Are You Playing Banjo?
+
+Description:
+Create a function which answers the question "Are you playing banjo?".
+If your name starts with the letter "R" or lower case "r", you are playing banjo!
+
+The function takes a name as its only argument, and returns one of the following strings:
+
+name + " plays banjo" 
+name + " does not play banjo"
+Names given are always valid strings.
+*/
 
 #include <stdlib.h>
-#include <criterion/criterion.h>
-
-char* are_you_playing_banjo(const char*);
-
-static void do_test(const char* input, const char* expected) {
-  char* actual = are_you_playing_banjo(input);
-  cr_assert_str_eq(actual, expected,
-    "for name = \"%s\" expected \"%s\"\nbut got \"%s\"",
-    input, expected, actual
-  );
-  free(actual);
-}
-
-Test(should_pass_all_the_tests_provided, sample_tests) {
-  do_test("Martin", "Martin does not play banjo");
-  do_test("Rikke", "Rikke plays banjo");
-  do_test("bravo", "bravo does not play banjo");
-  do_test("rolf", "rolf plays banjo");
-}
 
 char *are_you_playing_banjo(const char *name) {
 	const char *plays = " plays banjo";
