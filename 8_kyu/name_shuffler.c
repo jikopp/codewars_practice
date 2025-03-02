@@ -8,20 +8,20 @@ Example(Input --> Output)
 
 char *name_shuffler (char *shuffled, const char *name)
 {
-  int i = 0;
-  int j = 0;
-  int space = 0;
-  
-  while (name[i] && name[i] != ' ')
-    i++;
-  if (!name[i])
-    return (shuffled);
-  while (name[++i])
-    shuffled[j++] = name[i];
-  shuffled[j++] = ' ';
-  i = 0;
-  while (name[i] && name[i] != ' ')
-    shuffled[j++] = name[i++];
+	int	i = 0;
+	int	j = 0;
+	int	space = 0;
+	
+	while (name[i] && name[i] != ' ')
+		i++;
+	if (!name[i])
+		return (shuffled);
+	while (name[++i])
+		shuffled[j++] = name[i];
+	shuffled[j++] = ' ';
+	i = 0;
+	while (name[i] && name[i] != ' ')
+		shuffled[j++] = name[i++];
 	shuffled[j] = '\0';
 	return (shuffled);
 }
