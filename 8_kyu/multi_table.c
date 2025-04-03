@@ -23,76 +23,34 @@ If you're unsure about the format, look at the sample tests.
 
 */
 
+
 #include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 
 char *multi_table(int num)
 {
-    char count = 56;
-    int j = 8;
-    char star = '*';
-    char equal = '=';
-    char space = ' ';
+    int j = 1;
     int index = 0;
-    char num_char = '0' + num;
-    int max_len = 140;
-    
+    int max_len = 200;
     char *table = (char *)malloc(max_len * sizeof(char));
     if (table == NULL)
         return NULL;
-    
-    table[0] = '\0';
-    
-    while (j < 10)
-    {    
-        
-        table[index++] = count;
-        table[index++] = space;
-        table[index++] = star;
-        table[index++] = space;
-        table[index++] = num_char;
-        table[index++] = space;
-        table[index++] = equal;
-        table[index++] = space;
-        int result = (count - '0') * (num_char - '0');
 
-        if (result < 10)
-            table[index++] = result + '0';
-        else
-        {
-            
-            table[index++] = (result / 10) + '0';
-            table[index++] = (result % 10) + '0';
+    table[0] = '\0';
+
+    while (j <= 10)
+    {
+        if (j < 10) {
+            index += sprintf(table + index, "%d * %d = %d\n", j, num, j * num);
+        } else {
+            index += sprintf(table + index, "%d * %d = %d", j, num, j * num);
         }
-        count++;
-        table[index++] = '\n';
         j++;
     }
-    table[index++] = 49;
-    table[index++] = 48;
-    table[index++] = space;
-    table[index++] = star;
-    table[index++] = space;
-    table[index++] = num_char;
-    table[index++] = space;
-    table[index++] = equal;
-    table[index++] = space;
-    int result = (count - '0') * (num_char - '0');
-
-    if (result < 10)
-        table[index++] = result + '0';
-    else
-    {
-        
-        table[index++] = (result / 10) + '0';
-        table[index++] = (result % 10) + '0';
-    }
-    table[index++] = '\0';
-
 
     return table;
 }
-
 
 
 /*
